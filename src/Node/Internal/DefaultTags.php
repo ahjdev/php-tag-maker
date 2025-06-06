@@ -8,9 +8,15 @@ use AhjDev\PhpTagMaker\Node\HtmlTag;
 
 /**
  * @internal
+ * @property HtmlClass $class
  */
 trait DefaultTags
 {
+    public static function __callStatic($method, $args)
+    {
+        return HtmlTag::make($method, $args);
+    }
+
     public static function a(string $uri, Node|string ...$value): self
     {
         return HtmlTag::make('a', ...$value)->setAttribute('href', $uri);
@@ -24,7 +30,7 @@ trait DefaultTags
     /**
      * Defines a section in a document
      */
-    public static function div(HtmlClass|string $class = null, Node|string ...$value): self
+    public static function div(HtmlClass|string|null $class = null, Node|string ...$value): self
     {
         $tag = HtmlTag::make('div', ...$value);
         if ($class) {
@@ -34,59 +40,11 @@ trait DefaultTags
     }
 
     /**
-     * Defines an abbreviation or an acronym
-     */
-    public static function abbr(Node|string ...$value): self
-    {
-        return HtmlTag::make('abbr', ...$value);
-    }
-
-    /**
-     * Defines contact information for the author/owner of a document
-     */
-    public static function address(Node|string ...$value): self
-    {
-        return HtmlTag::make('address', ...$value);
-    }
-
-    /**
      * Defines an area inside an image map
      */
     public static function area(): self
     {
         return HtmlTag::make('area');
-    }
-
-    /**
-     * Defines an article
-     */
-    public static function article(Node|string ...$value): self
-    {
-        return HtmlTag::make('article', ...$value);
-    }
-
-    /**
-     * Defines content aside from the page content
-     */
-    public static function aside(Node|string ...$value): self
-    {
-        return HtmlTag::make('aside', ...$value);
-    }
-
-    /**
-     * Defines embedded sound content
-     */
-    public static function audio(Node|string ...$value): self
-    {
-        return HtmlTag::make('audio', ...$value);
-    }
-
-    /**
-     * Defines bold text
-     */
-    public static function b(Node|string ...$value): self
-    {
-        return HtmlTag::make('b', ...$value);
     }
 
     /**
@@ -100,67 +58,11 @@ trait DefaultTags
     }
 
     /**
-     * Isolates a part of text that might be formatted in a different direction from other text outside it
-     */
-    public static function bdi(Node|string ...$value): self
-    {
-        return HtmlTag::make('bdi', ...$value);
-    }
-
-    /**
-     * Overrides the current text direction
-     */
-    public static function bdo(Node|string ...$value): self
-    {
-        return HtmlTag::make('bdo', ...$value);
-    }
-
-    /**
-     * Defines a section that is quoted from another source
-     */
-    public static function blockquote(Node|string ...$value): self
-    {
-        return HtmlTag::make('blockquote', ...$value);
-    }
-
-    /**
-     * Defines the document's body
-     */
-    public static function body(Node|string ...$value): self
-    {
-        return HtmlTag::make('body', ...$value);
-    }
-
-    /**
      * Defines a single line break
      */
     public static function br(): self
     {
         return HtmlTag::make('br');
-    }
-
-    /**
-     * Defines a clickable button
-     */
-    public static function button(Node|string ...$value): self
-    {
-        return HtmlTag::make('button', ...$value);
-    }
-
-    /**
-     * Used to draw graphics, on the fly, via scripting (usually JavaScript)
-     */
-    public static function canvas(Node|string ...$value): self
-    {
-        return HtmlTag::make('canvas', ...$value);
-    }
-
-    /**
-     * Defines a table caption
-     */
-    public static function caption(Node|string ...$value): self
-    {
-        return HtmlTag::make('caption', ...$value);
     }
 
     /**

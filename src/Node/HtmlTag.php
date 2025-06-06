@@ -5,6 +5,21 @@ namespace AhjDev\PhpTagMaker\Node;
 use AhjDev\PhpTagMaker\Node;
 use AhjDev\PhpTagMaker\HtmlClass;
 
+/**
+ * @method static self abbr(Node|string ...$value) Defines an abbreviation or an acronym
+ * @method static self address(Node|string ...$value) Defines contact information for the author/owner of a document
+ * @method static self article(Node|string ...$value) Defines an article
+ * @method static self aside(Node|string ...$value) Defines content aside from the page content
+ * @method static self audio(Node|string ...$value) Defines embedded sound content
+ * @method static self b(Node|string ...$value) Defines bold text
+ * @method static self bdi(Node|string ...$value) Isolates a part of text that might be formatted in a different direction from other text outside it
+ * @method static self bdo(Node|string ...$value) Overrides the current text direction
+ * @method static self blockquote(Node|string ...$value) Defines a section that is quoted from another source
+ * @method static self body(Node|string ...$value) Defines the document's body
+ * @method static self button(Node|string ...$value) Defines a clickable button
+ * @method static self canvas(Node|string ...$value) Used to draw graphics, on the fly, via scripting (usually JavaScript)
+ * @method static self caption(Node|string ...$value) Defines a table caption
+ */
 final class HtmlTag extends Node
 {
     use Internal\Attributes;
