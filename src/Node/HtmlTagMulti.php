@@ -2,13 +2,12 @@
 
 namespace AhjDev\PhpTagMaker\Node;
 
-use IteratorAggregate;
 use AhjDev\PhpTagMaker\Node;
 
 /**
- * @implements IteratorAggregate<HtmlTag>
+ * @implements \IteratorAggregate<HtmlTag>
  */
-final class HtmlTagMulti extends Node implements IteratorAggregate
+final class HtmlTagMulti extends Node implements \IteratorAggregate
 {
     /** @var list<Node> */
     private array $values = [];

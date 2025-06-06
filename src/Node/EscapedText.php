@@ -2,16 +2,15 @@
 
 namespace AhjDev\PhpTagMaker\Node;
 
-use DOMCdataSection;
 use AhjDev\PhpTagMaker\Node;
 
 final class EscapedText extends Node
 {
-    private DOMCdataSection $text;
+    private \DOMCdataSection $text;
 
     public function __construct(string $text)
     {
-        $this->text = new DOMCdataSection($text);
+        $this->text = new \DOMCdataSection($text);
     }
 
     public static function make($text): self
@@ -19,7 +18,7 @@ final class EscapedText extends Node
         return new self($text);
     }
 
-    public function toDomNode(): DOMCdataSection
+    public function toDomNode(): \DOMCdataSection
     {
         return $this->text;
     }

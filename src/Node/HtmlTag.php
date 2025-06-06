@@ -2,7 +2,6 @@
 
 namespace AhjDev\PhpTagMaker\Node;
 
-use DOMElement;
 use AhjDev\PhpTagMaker\Node;
 use AhjDev\PhpTagMaker\HtmlClass;
 
@@ -16,11 +15,11 @@ final class HtmlTag extends Node
 
     private HtmlClass $class;
 
-    private DOMElement $domElement;
+    private \DOMElement $domElement;
 
     public function __construct(private string $tag, Node|string ...$value)
     {
-        $this->domElement = new DOMElement($tag);
+        $this->domElement = new \DOMElement($tag);
         $this->values = array_map(static fn ($v) => is_string($v) ? new HtmlText($v) : $v, $value);
         $this->class = new HtmlClass;
         // $this->domElement->getElementsByTagName();
@@ -42,7 +41,7 @@ final class HtmlTag extends Node
 
     public function setName(string $tag): self
     {
-        $element = new DOMElement($tag);
+        $element = new \DOMElement($tag);
         // Copy attributes and child nodes from old element to new element
         foreach ($this->domElement->attributes as $attribute) {
             $element->setAttribute(
@@ -57,7 +56,7 @@ final class HtmlTag extends Node
         return $this;
     }
 
-    public function toDomNode(): DOMElement
+    public function toDomNode(): \DOMElement
     {
         $element = $this->domElement->cloneNode(true);
         if ($this->class->count()) {

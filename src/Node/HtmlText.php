@@ -2,16 +2,15 @@
 
 namespace AhjDev\PhpTagMaker\Node;
 
-use DOMText;
 use AhjDev\PhpTagMaker\Node;
 
 final class HtmlText extends Node
 {
-    private DOMText $domText;
+    private \DOMText $domText;
 
     public function __construct(string $text)
     {
-        $this->domText = new DOMText($text);
+        $this->domText = new \DOMText($text);
     }
 
     public static function make($text): self
@@ -19,7 +18,7 @@ final class HtmlText extends Node
         return new self($text);
     }
 
-    public function toDomNode(): DOMText
+    public function toDomNode(): \DOMText
     {
         return $this->domText;
     }

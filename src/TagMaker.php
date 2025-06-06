@@ -2,8 +2,6 @@
 
 namespace AhjDev\PhpTagMaker;
 
-use DOMDocument;
-
 final class TagMaker
 {
     private bool $formatOutput = false;
@@ -24,7 +22,7 @@ final class TagMaker
 
     public function run(Node $node): string
     {
-        $dom  = new DOMDocument();
+        $dom  = new \DOMDocument();
         $dom->formatOutput = $this->formatOutput;
         $dom->appendChild(
             $dom->importNode(

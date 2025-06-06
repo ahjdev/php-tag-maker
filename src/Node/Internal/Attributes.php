@@ -2,15 +2,11 @@
 
 namespace AhjDev\PhpTagMaker\Node\Internal;
 
-use DOMAttr;
-use DOMElement;
-use Iterator;
-use ArrayIterator;
 use AhjDev\PhpTagMaker\HtmlClass;
 
 /**
  * @internal
- * @property DOMElement $domElement
+ * @property \DOMElement $domElement
  */
 trait Attributes
 {
@@ -61,11 +57,11 @@ trait Attributes
     }
 
     /**
-     * @return ArrayIterator<DOMAttr>
+     * @return \ArrayIterator<\DOMAttr>
      */
-    public function iterAttributes(): Iterator
+    public function iterAttributes(): \Iterator
     {
-        return new ArrayIterator(
+        return new \ArrayIterator(
             array_map(
                 fn (string $name) => $this->domElement->getAttributeNode($name),
                 $this->domElement->getAttributeNames()

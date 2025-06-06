@@ -2,11 +2,7 @@
 
 namespace AhjDev\PhpTagMaker;
 
-use Countable;
-use Stringable;
-use IteratorAggregate;
-
-final class HtmlClass implements Stringable, IteratorAggregate, Countable
+final class HtmlClass implements \Stringable, \IteratorAggregate, \Countable
 {
     private array $classList = [];
 
