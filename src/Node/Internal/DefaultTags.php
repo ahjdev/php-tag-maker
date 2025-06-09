@@ -14,7 +14,7 @@ trait DefaultTags
 {
     public static function __callStatic($method, $args)
     {
-        return HtmlTag::make($method, $args);
+        return HtmlTag::make($method, ...$args);
     }
 
     public static function a(string $uri, Node|string ...$value): self
